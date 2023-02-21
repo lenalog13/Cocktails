@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
                 print(cocktail)
                 self?.showAlert(title: "Success",
                                message: "You can see the results in the Debug aria")
-            } catch {
+            } catch let error {
                 self?.showAlert(title: "Failed",
                                message: error.localizedDescription)
             }
