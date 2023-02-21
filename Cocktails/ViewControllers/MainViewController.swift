@@ -9,13 +9,51 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
+    private let link = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
 
     @IBAction func pressStartButton() {
+        fetchCocktail()
+    }
+    
+    
+    private func fetchCocktail() {
+        guard let url = URL(string: link) else { return }
+        
+        let session = URLSession(configuration: .default)
+        
+        let task = session.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                self.showAlert(
+                    title: "Error",
+                    message: error?.localizedDescription ?? "No error description")
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                let cocktail = try jsonDecoder.decode(Cocktail.self, from: data)
+                print(cocktail)
+                self.showAlert(title: "Success",
+                               message: "You can see the results in the Debug aria")
+            } catch {
+                self.showAlert(title: "Failed",
+                               message: error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
+    
+    
+    private func showAlert(title: String, message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title,
+                                          message: message,
+                                          preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true)
+        }
     }
 }
 

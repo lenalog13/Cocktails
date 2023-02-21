@@ -9,7 +9,7 @@ import Foundation
 
 struct Drink: Decodable {
     
-    let strDrink: String
+    let strDrink: String?
     let strDrinkThumb: String?
     
     let strIngredient1: String?
