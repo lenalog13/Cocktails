@@ -19,11 +19,10 @@ class MainViewController: UIViewController {
     private func fetchCocktail() {
         guard let url = URL(string: link) else { return }
         
-        let session = URLSession(configuration: .default)
         
-        let task = session.dataTask(with: url) { data, _, error in
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             guard let data = data else {
-                self.showAlert(
+                self?.showAlert(
                     title: "Error",
                     message: error?.localizedDescription ?? "No error description")
                 return
@@ -34,14 +33,13 @@ class MainViewController: UIViewController {
             do {
                 let cocktail = try jsonDecoder.decode(Cocktail.self, from: data)
                 print(cocktail)
-                self.showAlert(title: "Success",
+                self?.showAlert(title: "Success",
                                message: "You can see the results in the Debug aria")
             } catch {
-                self.showAlert(title: "Failed",
+                self?.showAlert(title: "Failed",
                                message: error.localizedDescription)
             }
-        }
-        task.resume()
+        }.resume()
     }
     
     
