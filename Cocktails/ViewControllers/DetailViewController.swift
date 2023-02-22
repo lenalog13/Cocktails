@@ -32,7 +32,8 @@ class DetailViewController: UIViewController {
                 self?.imageView.image = UIImage(data: imageData)
                 self?.activityIndicator.stopAnimating()
             case .failure(_):
-                return
+                self?.imageView.image = UIImage(named: "Cocktail")
+                self?.activityIndicator.stopAnimating()
             }
         }
     }
