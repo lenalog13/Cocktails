@@ -32,6 +32,14 @@ class MainTableViewController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            guard
+                let detailVS = segue.destination as? DetailViewController else { return }
+            detailVS.drink = cocktailsList.drinks[indexPath.row]
+        }
+    }
+    
     
     private func fetchCocktail() {
         NetworkManager.shared.fetchCocktail(from: link) { [weak self] result in

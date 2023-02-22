@@ -9,21 +9,56 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var ingridientLabel: UILabel!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
+    var drink: Drink!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = drink.strDrink
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        fetchImage()
+        getTextLabel()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func fetchImage() {
+        NetworkManager.shared.fetchImage(from: drink.strDrinkThumb) {
+            [weak self] result in
+            switch result {
+            case .success(let imageData):
+                self?.imageView.image = UIImage(data: imageData)
+                self?.activityIndicator.stopAnimating()
+            case .failure(_):
+                return
+            }
+        }
     }
-    */
+   
+    private func getTextLabel() {
+        var ingridients = "Ingridients: \(drink.strIngredient1)"
+        if let ingridient = drink.strIngredient2 {
+            ingridients += ", \(ingridient)"
+        }
+        if let ingridient = drink.strIngredient3 {
+            ingridients += ", \(ingridient)"
+        }
+        if let ingridient = drink.strIngredient4 {
+            ingridients += ", \(ingridient)"
+        }
+        if let ingridient = drink.strIngredient5 {
+            ingridients += ", \(ingridient)"
+        }
+        if let ingridient = drink.strIngredient6 {
+            ingridients += ", \(ingridient)"
+        }
+        if let ingridient = drink.strIngredient7 {
+            ingridients += ", \(ingridient)"
+        }
+        ingridientLabel.text = ingridients
+    }
+    
 
 }

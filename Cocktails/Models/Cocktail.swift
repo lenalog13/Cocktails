@@ -9,10 +9,10 @@ import Foundation
 
 struct Drink: Decodable {
     
-    let strDrink: String?
+    let strDrink: String
     let strDrinkThumb: String?
     
-    let strIngredient1: String?
+    let strIngredient1: String
     let strIngredient2: String?
     let strIngredient3: String?
     let strIngredient4: String?
