@@ -7,11 +7,14 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainTableViewController: UITableViewController {
 
-    private let link = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+   // private let link = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+    var cocktailsList: Cocktail!
 
-    @IBAction func pressStartButton() {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         fetchCocktail()
     }
     
@@ -32,7 +35,7 @@ class MainViewController: UIViewController {
             
             do {
                 let cocktail = try jsonDecoder.decode(Cocktail.self, from: data)
-                print(cocktail)
+                self?.cocktailsList = cocktail
                 self?.showAlert(title: "Success",
                                message: "You can see the results in the Debug aria")
             } catch let error {
