@@ -9,8 +9,7 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
 
-   // private let link = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
-    var cocktailsList: Cocktail!
+    var cocktailsList = Cocktail(drinks: [])
 
     
     override func viewDidLoad() {
@@ -18,31 +17,32 @@ class MainTableViewController: UITableViewController {
         fetchCocktail()
     }
     
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
+        cocktailsList.drinks.count
+    }
+
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "showDetails", for: indexPath)
+        let cocktail = cocktailsList.drinks[indexPath.row]
+        var content = cell.defaultContentConfiguration()
+        content.text = cocktail.strDrink
+        cell.contentConfiguration = content
+        return cell
+    }
+    
     
     private func fetchCocktail() {
-        guard let url = URL(string: link) else { return }
-        
-        
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data else {
-                self?.showAlert(
-                    title: "Error",
-                    message: error?.localizedDescription ?? "No error description")
-                return
+        NetworkManager.shared.fetchCocktail(from: link) { [weak self] result in
+            switch result{
+            case .success(let cockrails):
+                self?.cocktailsList = cockrails
+                self?.tableView.reloadData()
+            case .failure(let error):
+                self?.showAlert(title: "Error", message: error.localizedDescription)
             }
-            
-            let jsonDecoder = JSONDecoder()
-            
-            do {
-                let cocktail = try jsonDecoder.decode(Cocktail.self, from: data)
-                self?.cocktailsList = cocktail
-                self?.showAlert(title: "Success",
-                               message: "You can see the results in the Debug aria")
-            } catch let error {
-                self?.showAlert(title: "Failed",
-                               message: error.localizedDescription)
-            }
-        }.resume()
+        }
     }
     
     

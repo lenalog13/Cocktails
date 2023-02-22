@@ -14,12 +14,12 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="TWc-vv-rJi">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.66143984190000005" green="0.78644757229999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="separatorColor" red="0.66143984190000005" green="0.78644757229999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="sectionIndexBackgroundColor" red="0.66143984190000005" green="0.78644757229999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="sectionIndexTrackingBackgroundColor" red="0.66143984190000005" green="0.78644757229999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.72474588829999997" green="0.8365311326" blue="0.98829740290000001" alpha="0.8100941639" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.72474588829999997" green="0.8365311326" blue="0.98829740290000001" alpha="0.8100941639" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.72474588829999997" green="0.8365311326" blue="0.98829740290000001" alpha="0.8100941639" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexTrackingBackgroundColor" red="0.72474588829999997" green="0.8365311326" blue="0.98829740290000001" alpha="0.8100941639" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cocktailInfo" textLabel="FQq-e6-f2C" style="IBUITableViewCellStyleDefault" id="6fu-Vb-ZkZ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="showDetails" textLabel="FQq-e6-f2C" style="IBUITableViewCellStyleDefault" id="6fu-Vb-ZkZ">
                                 <rect key="frame" x="0.0" y="50" width="430" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6fu-Vb-ZkZ" id="oyW-HH-Xpi">
@@ -34,8 +34,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.66143984190000005" green="0.78644757229999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.72474588829999997" green="0.8365311326" blue="0.98829740290000001" alpha="0.8100941639" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" red="0.72474588829999997" green="0.8365311326" blue="0.98829740290000001" alpha="0.8100941639" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.72474588829999997" green="0.8365311326" blue="0.98829740290000001" alpha="0.8100941639" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="jPb-8I-m3e" kind="show" id="9dT-3d-NZH"/>
                                 </connections>
@@ -71,7 +73,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ysP-2v-JZd"/>
-                        <color key="backgroundColor" red="0.66143984190000005" green="0.78644757229999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.72474588829999997" green="0.8365311326" blue="0.98829740290000001" alpha="0.8100941639" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ysP-2v-JZd" firstAttribute="trailing" secondItem="swg-4l-Zg1" secondAttribute="trailing" constant="16" id="4Uc-YM-G6M"/>
                             <constraint firstItem="rgm-aQ-don" firstAttribute="leading" secondItem="ysP-2v-JZd" secondAttribute="leading" constant="16" id="4XI-RP-XCJ"/>
