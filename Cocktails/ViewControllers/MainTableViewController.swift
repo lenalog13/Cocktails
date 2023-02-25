@@ -7,9 +7,10 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
+final class MainTableViewController: UITableViewController {
 
-    var cocktailsList = Cocktail(drinks: [])
+    private let link = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+    private var cocktailsList = Cocktail(drinks: [])
 
     
     override func viewDidLoad() {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var ingridientLabel: UILabel!
@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         fetchImage()
-        getTextLabel()
+        ingridientLabel.text = drink.ingridients
     }
     
     private func fetchImage() {
@@ -30,36 +30,11 @@ class DetailViewController: UIViewController {
             switch result {
             case .success(let imageData):
                 self?.imageView.image = UIImage(data: imageData)
-                self?.activityIndicator.stopAnimating()
             case .failure(_):
                 self?.imageView.image = UIImage(named: "Cocktail")
-                self?.activityIndicator.stopAnimating()
             }
+            self?.activityIndicator.stopAnimating()
         }
     }
    
-    private func getTextLabel() {
-        var ingridients = "Ingridients: \(drink.strIngredient1)"
-        if let ingridient = drink.strIngredient2 {
-            ingridients += ", \(ingridient)"
-        }
-        if let ingridient = drink.strIngredient3 {
-            ingridients += ", \(ingridient)"
-        }
-        if let ingridient = drink.strIngredient4 {
-            ingridients += ", \(ingridient)"
-        }
-        if let ingridient = drink.strIngredient5 {
-            ingridients += ", \(ingridient)"
-        }
-        if let ingridient = drink.strIngredient6 {
-            ingridients += ", \(ingridient)"
-        }
-        if let ingridient = drink.strIngredient7 {
-            ingridients += ", \(ingridient)"
-        }
-        ingridientLabel.text = ingridients
-    }
-    
-
 }

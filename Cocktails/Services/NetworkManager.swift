@@ -7,7 +7,6 @@
 
 import Foundation
 
-let link = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
 
 enum NetworkError: Error {
     case invalidUrl
