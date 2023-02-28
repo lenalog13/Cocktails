@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Drink: Decodable {
+struct Cocktail: Decodable {
     
     let strDrink: String
     let strDrinkThumb: String?
@@ -31,14 +31,39 @@ struct Drink: Decodable {
         
         return line
     }
+
+    init(cocktailData: [String: Any?]) {
+    strDrink = cocktailData["strDrink"] as? String ?? ""
+    strDrinkThumb = cocktailData["strDrinkThumb"] as? String
+    strIngredient1 = cocktailData["strIngredient1"] as? String ?? ""
+    strIngredient2 = cocktailData["strIngredient2"] as? String
+    strIngredient3 = cocktailData["strIngredient3"] as? String
+    strIngredient4 = cocktailData["strIngredient4"] as? String
+    strIngredient5 = cocktailData["strIngredient5"] as? String
+    strIngredient6 = cocktailData["strIngredient6"] as? String
+    strIngredient7 = cocktailData["strIngredient7"] as? String
+    }
+    
+    static func getCocktails(from value: Any) -> [Cocktail] {
+        var cocktails: [Cocktail] = []
+        guard
+            let cocktailsData = value as? [String: [Any]] else {
+            return cocktails
+        }
+        
+        guard
+            let drinksData = cocktailsData["drinks"] as? [[String: Any]] else {
+            return cocktails
+        }
+        
+        for cocktailData in drinksData {
+            let cocktail = Cocktail(cocktailData: cocktailData)
+            cocktails.append(cocktail)
+        }
+        
+        return cocktails
+    }
 }
 
-
-
-struct Cocktail: Decodable {
-    
-    let drinks: [Drink]
-    
-}
 
 

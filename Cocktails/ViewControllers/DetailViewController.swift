@@ -13,7 +13,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet var ingridientLabel: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    var drink: Drink!
+    var drink: Cocktail!
     
     override func viewDidLoad() {
         super.viewDidLoad()

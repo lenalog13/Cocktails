@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 
 enum NetworkError: Error {
@@ -22,31 +23,19 @@ class NetworkManager {
     
     
     func fetchCocktail(from url: String?,
-                       completion: @escaping(Result<Cocktail, NetworkError>) -> Void) {
-        guard let url = URL(string: url ?? "") else {
-            completion(.failure(.invalidUrl))
-            return
-        }
+                       completion: @escaping(Result<[Cocktail], AFError>) -> Void) {
         
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                completion(.failure(.noData))
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            do {
-                let jsonDecoder = JSONDecoder()
-                let cocktail = try jsonDecoder.decode(Cocktail.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(cocktail))
+        AF.request(url ?? "")
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let cocktails = Cocktail.getCocktails(from: value)
+                    completion(.success(cocktails))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
-            } catch {
-                completion(.failure(.decodingError))
-            }
-            
-        }.resume()
+        }
     }
     
     
@@ -69,3 +58,5 @@ class NetworkManager {
     }
     
 }
+
+

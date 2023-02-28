@@ -10,7 +10,7 @@ import UIKit
 final class MainTableViewController: UITableViewController {
 
     private let link = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
-    private var cocktailsList = Cocktail(drinks: [])
+    private var cocktailsList: [Cocktail] = []
 
     
     override func viewDidLoad() {
@@ -20,13 +20,13 @@ final class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
-        cocktailsList.drinks.count
+        cocktailsList.count
     }
 
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showDetails", for: indexPath)
-        let cocktail = cocktailsList.drinks[indexPath.row]
+        let cocktail = cocktailsList[indexPath.row]
         var content = cell.defaultContentConfiguration()
         content.text = cocktail.strDrink
         cell.contentConfiguration = content
@@ -37,7 +37,7 @@ final class MainTableViewController: UITableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             guard
                 let detailVS = segue.destination as? DetailViewController else { return }
-            detailVS.drink = cocktailsList.drinks[indexPath.row]
+            detailVS.drink = cocktailsList[indexPath.row]
         }
     }
     
@@ -45,8 +45,8 @@ final class MainTableViewController: UITableViewController {
     private func fetchCocktail() {
         NetworkManager.shared.fetchCocktail(from: link) { [weak self] result in
             switch result{
-            case .success(let cockrails):
-                self?.cocktailsList = cockrails
+            case .success(let cocktails):
+                self?.cocktailsList = cocktails
                 self?.tableView.reloadData()
             case .failure(let error):
                 self?.showAlert(title: "Error", message: error.localizedDescription)
