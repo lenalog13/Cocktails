@@ -13,19 +13,19 @@ final class DetailViewController: UIViewController {
     @IBOutlet var ingridientLabel: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    var drink: Cocktail!
+    var cocktail: Cocktail!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = drink.strDrink
+        title = cocktail.strDrink
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         fetchImage()
-        ingridientLabel.text = drink.ingridients
+        ingridientLabel.text = cocktail.ingridients
     }
     
     private func fetchImage() {
-        NetworkManager.shared.fetchImage(from: drink.strDrinkThumb) {
+        NetworkManager.shared.fetchImage(from: cocktail.strDrinkThumb) {
             [weak self] result in
             switch result {
             case .success(let imageData):

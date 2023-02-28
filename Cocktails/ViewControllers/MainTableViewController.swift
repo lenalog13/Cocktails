@@ -37,7 +37,7 @@ final class MainTableViewController: UITableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             guard
                 let detailVS = segue.destination as? DetailViewController else { return }
-            detailVS.drink = cocktailsList[indexPath.row]
+            detailVS.cocktail = cocktailsList[indexPath.row]
         }
     }
     

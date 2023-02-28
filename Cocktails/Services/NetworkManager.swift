@@ -9,12 +9,6 @@ import Foundation
 import Alamofire
 
 
-enum NetworkError: Error {
-    case invalidUrl
-    case noData
-    case decodingError
-}
-
 class NetworkManager {
     
     static let shared = NetworkManager()
@@ -40,21 +34,18 @@ class NetworkManager {
     
     
     func fetchImage(from url: String?,
-                    completion: @escaping(Result<Data, NetworkError>) -> Void) {
-        guard let url = URL(string: url ?? "") else {
-            completion(.failure(.invalidUrl))
-            return
-        }
+                    completion: @escaping(Result<Data, AFError>) -> Void) {
         
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: url) else {
-                completion(.failure(.noData))
-                return
+        AF.request(url ?? "")
+            .validate()
+            .responseData { dataRequest in
+                switch dataRequest.result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let errore):
+                    completion(.failure(errore))
+                }
             }
-            DispatchQueue.main.async {
-                completion(.success(imageData))
-            }
-        }
     }
     
 }

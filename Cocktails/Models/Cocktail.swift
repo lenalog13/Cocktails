@@ -46,6 +46,7 @@ struct Cocktail: Decodable {
     
     static func getCocktails(from value: Any) -> [Cocktail] {
         var cocktails: [Cocktail] = []
+        
         guard
             let cocktailsData = value as? [String: [Any]] else {
             return cocktails
