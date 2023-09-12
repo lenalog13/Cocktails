@@ -106,7 +106,7 @@
         <!--Cocktails-->
         <scene sceneID="CED-Vq-cge">
             <objects>
-                <collectionViewController id="VtF-i1-H0f" sceneMemberID="viewController">
+                <collectionViewController id="VtF-i1-H0f" customClass="CocktailCollectionViewController" customModule="Cocktails" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="PZB-nj-mab">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

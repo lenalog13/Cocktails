@@ -9,7 +9,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-final class MainCollectionViewController: UICollectionViewController {
+final class CocktailCollectionViewController: UICollectionViewController {
     
     
     private let link = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
