@@ -9,6 +9,8 @@ import UIKit
 
 final class CocktailCollectionViewController: UICollectionViewController {
     
+    private let itemPerRow: CGFloat = 2
+    private let sectionInserts = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     
     private let link = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
     private var cocktailsList: [Cocktail] = []
@@ -86,17 +88,25 @@ final class CocktailCollectionViewController: UICollectionViewController {
 extension CocktailCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemPerRow: CGFloat = 2
-        let peddingWidth = 16 * (itemPerRow + 1)
+        
+        let peddingWidth = sectionInserts.top * (itemPerRow + 1)
         let availableWifth = collectionView.frame.width - peddingWidth
         let widthPerItem = availableWifth / itemPerRow
         return CGSize(width: widthPerItem, height: 1.5 * widthPerItem)
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top:  16, left: 16, bottom: 16, right: 16)
+        return sectionInserts
     }
     
+    /*
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInserts.top
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInserts.top
+    }
+     */
     
 }
