@@ -92,6 +92,7 @@ extension CocktailCollectionViewController: UICollectionViewDelegateFlowLayout {
         let peddingWidth = sectionInserts.top * (itemPerRow + 1)
         let availableWifth = collectionView.frame.width - peddingWidth
         let widthPerItem = availableWifth / itemPerRow
+        
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
     

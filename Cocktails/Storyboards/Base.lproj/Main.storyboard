@@ -118,29 +118,29 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cocktail" id="4u0-1A-mTB" customClass="CocktailCollectionViewCell" customModule="Cocktails" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5yp-iv-nzD">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5yp-iv-nzD">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         </imageView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="srD-lv-oCm">
-                                            <rect key="frame" x="40" y="65" width="20" height="20"/>
+                                            <rect key="frame" x="65" y="65" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="5yp-iv-nzD" secondAttribute="trailing" id="0B0-bl-3XJ"/>
-                                    <constraint firstItem="srD-lv-oCm" firstAttribute="centerY" secondItem="4u0-1A-mTB" secondAttribute="centerY" id="Fwf-wT-qpg"/>
-                                    <constraint firstAttribute="bottom" secondItem="5yp-iv-nzD" secondAttribute="bottom" id="LKP-W9-iUM"/>
-                                    <constraint firstItem="srD-lv-oCm" firstAttribute="centerX" secondItem="4u0-1A-mTB" secondAttribute="centerX" id="NfH-SG-gCX"/>
-                                    <constraint firstItem="5yp-iv-nzD" firstAttribute="top" secondItem="4u0-1A-mTB" secondAttribute="top" id="Oe7-3v-lKi"/>
-                                    <constraint firstItem="5yp-iv-nzD" firstAttribute="leading" secondItem="4u0-1A-mTB" secondAttribute="leading" id="xrr-fh-BrP"/>
+                                    <constraint firstAttribute="bottom" secondItem="5yp-iv-nzD" secondAttribute="bottom" id="2yR-VX-DQa"/>
+                                    <constraint firstAttribute="trailing" secondItem="5yp-iv-nzD" secondAttribute="trailing" id="PdH-JG-84F"/>
+                                    <constraint firstItem="5yp-iv-nzD" firstAttribute="leading" secondItem="4u0-1A-mTB" secondAttribute="leading" id="VfX-H8-urI"/>
+                                    <constraint firstItem="srD-lv-oCm" firstAttribute="centerX" secondItem="4u0-1A-mTB" secondAttribute="centerX" id="a4j-EJ-wcH"/>
+                                    <constraint firstItem="srD-lv-oCm" firstAttribute="centerY" secondItem="4u0-1A-mTB" secondAttribute="centerY" id="hV3-te-Lkw"/>
+                                    <constraint firstItem="5yp-iv-nzD" firstAttribute="top" secondItem="4u0-1A-mTB" secondAttribute="top" id="rxO-N3-eiu"/>
                                 </constraints>
-                                <size key="customSize" width="100" height="150"/>
+                                <size key="customSize" width="150" height="150"/>
                                 <connections>
                                     <outlet property="activityIndicator" destination="srD-lv-oCm" id="Dzf-NX-Vz1"/>
                                     <outlet property="cocktailImageView" destination="5yp-iv-nzD" id="h3x-uI-p1H"/>
