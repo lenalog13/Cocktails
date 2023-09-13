@@ -7,6 +7,6 @@
 
 import UIKit
 
-class CocktailCollectionViewCell: UICollectionViewCell {
+final class CocktailCollectionViewCell: UICollectionViewCell {
     
 }
