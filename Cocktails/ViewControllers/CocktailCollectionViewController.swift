@@ -52,7 +52,7 @@ final class CocktailCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cocktail", for: indexPath) as! CocktailCollectionViewCell
     
-        cell.backgroundColor = .black
+        cell.configure(with: cocktailsList[indexPath.item])
     
         return cell
     }
@@ -92,21 +92,23 @@ extension CocktailCollectionViewController: UICollectionViewDelegateFlowLayout {
         let peddingWidth = sectionInserts.top * (itemPerRow + 1)
         let availableWifth = collectionView.frame.width - peddingWidth
         let widthPerItem = availableWifth / itemPerRow
-        return CGSize(width: widthPerItem, height: 1.5 * widthPerItem)
+        return CGSize(width: widthPerItem, height: widthPerItem)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInserts
     }
     
-    /*
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInserts.top
     }
-    
+     
+    /*
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInserts.top
     }
      */
+     
     
 }

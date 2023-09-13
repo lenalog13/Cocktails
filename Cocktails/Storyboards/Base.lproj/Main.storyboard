@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -119,12 +118,33 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cocktail" id="4u0-1A-mTB" customClass="CocktailCollectionViewCell" customModule="Cocktails" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="O8W-fU-68n">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5yp-iv-nzD">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
+                                        </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="srD-lv-oCm">
+                                            <rect key="frame" x="40" y="65" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5yp-iv-nzD" secondAttribute="trailing" id="0B0-bl-3XJ"/>
+                                    <constraint firstItem="srD-lv-oCm" firstAttribute="centerY" secondItem="4u0-1A-mTB" secondAttribute="centerY" id="Fwf-wT-qpg"/>
+                                    <constraint firstAttribute="bottom" secondItem="5yp-iv-nzD" secondAttribute="bottom" id="LKP-W9-iUM"/>
+                                    <constraint firstItem="srD-lv-oCm" firstAttribute="centerX" secondItem="4u0-1A-mTB" secondAttribute="centerX" id="NfH-SG-gCX"/>
+                                    <constraint firstItem="5yp-iv-nzD" firstAttribute="top" secondItem="4u0-1A-mTB" secondAttribute="top" id="Oe7-3v-lKi"/>
+                                    <constraint firstItem="5yp-iv-nzD" firstAttribute="leading" secondItem="4u0-1A-mTB" secondAttribute="leading" id="xrr-fh-BrP"/>
+                                </constraints>
+                                <size key="customSize" width="100" height="150"/>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="srD-lv-oCm" id="Dzf-NX-Vz1"/>
+                                    <outlet property="cocktailImageView" destination="5yp-iv-nzD" id="h3x-uI-p1H"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
