@@ -9,7 +9,7 @@ import UIKit
 
 final class CocktailCollectionViewController: UICollectionViewController {
     
-    private let itemPerRow: CGFloat = 2
+    private let itemPerRow: CGFloat = 3
     private let sectionInserts = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     
     private let link = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
