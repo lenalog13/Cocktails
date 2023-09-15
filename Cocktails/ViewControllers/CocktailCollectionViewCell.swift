@@ -18,6 +18,7 @@ final class CocktailCollectionViewCell: UICollectionViewCell {
         activityIndicator.hidesWhenStopped = true
         fetchImage(with: cocktail.strDrinkThumb ?? "")
         activityIndicator.stopAnimating()
+        layer.cornerRadius = 10
 
     }
     
