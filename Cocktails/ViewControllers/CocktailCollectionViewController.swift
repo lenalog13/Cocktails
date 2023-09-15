@@ -41,12 +41,6 @@ final class CocktailCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cocktailsList.count
     }
@@ -86,6 +80,8 @@ final class CocktailCollectionViewController: UICollectionViewController {
 
 }
 
+//MARK: - UICollectionViewDelegateFlowLayout
+
 
 extension CocktailCollectionViewController: UICollectionViewDelegateFlowLayout {
     
@@ -106,12 +102,5 @@ extension CocktailCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInserts.top
     }
-     
-    /*
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInserts.top
-    }
-     */
-     
     
 }
