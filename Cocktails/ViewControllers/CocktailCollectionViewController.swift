@@ -26,15 +26,17 @@ final class CocktailCollectionViewController: UICollectionViewController {
     // MARK: - Navigation
 
     
-        /*
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = collectionView.indexPathsForSelectedItems {
+        if segue.identifier == "cocktailDetail" {
+            let index = collectionView.indexPathsForSelectedItems
+            let cocktail = cocktailsList[index?[0].row ?? 0]
             guard
                 let detailVS = segue.destination as? DetailViewController else { return }
-            detailVS.cocktail = cocktailsList[indexPath.item]
+            detailVS.cocktail = cocktail
         }
     }
-         */
+    
     
 
     // MARK: UICollectionViewDataSource
@@ -93,7 +95,7 @@ extension CocktailCollectionViewController: UICollectionViewDelegateFlowLayout {
         let availableWifth = collectionView.frame.width - peddingWidth
         let widthPerItem = availableWifth / itemPerRow
         
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        return CGSize(width: widthPerItem, height: 1.5 * widthPerItem)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
