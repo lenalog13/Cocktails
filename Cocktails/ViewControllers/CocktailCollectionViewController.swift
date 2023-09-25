@@ -92,7 +92,7 @@ extension CocktailCollectionViewController: UICollectionViewDelegateFlowLayout {
         let availableWifth = collectionView.frame.width - peddingWidth
         let widthPerItem = availableWifth / itemPerRow
         
-        return CGSize(width: widthPerItem, height: widthPerItem * 1.5)
+        return CGSize(width: widthPerItem, height: widthPerItem)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
