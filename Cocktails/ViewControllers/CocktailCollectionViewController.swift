@@ -83,30 +83,33 @@ final class CocktailCollectionViewController: UICollectionViewController {
 //MARK: - UICollectionViewDelegateFlowLayout
 
 
+
 extension CocktailCollectionViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let peddingWidth = sectionInserts.top * (itemPerRow + 1)
-        let availableWifth = collectionView.frame.width - peddingWidth
-        let widthPerItem = availableWifth / itemPerRow
-        
-        return CGSize(width: widthPerItem, height: widthPerItem + 20)
-    }
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInserts
+    return sectionInserts
     }
-    
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInserts.top
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInserts.top
-    }
-    
 }
+
+
+/*
+      
+      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+          
+          let peddingWidth = sectionInserts.top * (itemPerRow + 1)
+          let availableWifth = collectionView.frame.width - peddingWidth
+          let widthPerItem = availableWifth / itemPerRow
+          
+          return CGSize(width: widthPerItem, height: widthPerItem * 1.5 )
+      }
+ 
+ }
+ */
+
+
